@@ -5,6 +5,7 @@ public interface modoTelefono {
     public String llamarContactos(int desicion);
     public String finalizarLlamadaEspera();
     public String cambiarLlamadaEspera();
+    public boolean estadoConeccion();
 
     
 }

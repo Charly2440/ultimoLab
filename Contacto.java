@@ -4,6 +4,9 @@ public class Contacto{
     private long numero;
 
     public Contacto() {
+        nombre ="";
+        estado="";
+        numero =0;
     }
 
     public Contacto(String nombre, String estado, long numero) {

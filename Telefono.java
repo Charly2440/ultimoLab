@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Telefono {
@@ -5,21 +8,35 @@ public class Telefono {
     private boolean conectado;
     private String estadoLlamada;
 
+    public Telefono() {
+        contactos = new ArrayList<Contacto>();
+    }
+
+    public Telefono(ArrayList<Contacto> contactos, boolean conectado) {
+        this.contactos = contactos;
+        this.conectado = conectado;
+    }
+
+    public void rellenarContactos(){
+        String path = "contactos.csv";
+        String line = "";
+        try (BufferedReader buff = new BufferedReader(new FileReader(path))) {
+            while((line = buff.readLine()) != null){
+                String[] a = line.split(",");
+                contactos.add(new Contacto(a[0], "", Long.parseLong(a[1])));         
+            }
+        } catch (IOException e) {
+            
+            e.printStackTrace();
+    }
+    }
+
     public String getEstadoLlamada() {
         return this.estadoLlamada;
     }
 
     public void setEstadoLlamada(String estadoLlamada) {
         this.estadoLlamada = estadoLlamada;
-    }
-
-
-    public Telefono() {
-    }
-
-    public Telefono(ArrayList<Contacto> contactos, boolean conectado) {
-        this.contactos = contactos;
-        this.conectado = conectado;
     }
 
     public ArrayList<Contacto> getContactos() {

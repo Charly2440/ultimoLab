@@ -27,6 +27,7 @@ public class Radio {
 
     public Radio() {
         telefono = new Telefono();
+        telefono.rellenarContactos();
         emisora = new Emisora();
         playlists = new ArrayList<Playlist>();
         estado = true;

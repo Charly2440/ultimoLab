@@ -5,6 +5,7 @@ public class Sistema implements productividad, modoRadio, modoReproduccion, modo
 
     public Sistema(){
         radio = new Radio();
+        radio.rellenarPlaylists();
     }   
 
     //Interfaz productividad
@@ -132,6 +133,11 @@ public class Sistema implements productividad, modoRadio, modoReproduccion, modo
     @Override
     public void conectado() {
         radio.getTelefono().setConectado(true);
+    }
+
+    @Override
+    public boolean estadoConeccion() {
+        return radio.getTelefono().getConectado();
     }
 
     @Override
