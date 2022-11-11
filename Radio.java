@@ -31,22 +31,42 @@ public class Radio {
     }
 
     public void rellenarPlaylists(){
-        String path = "spotify_dataset.csv";
+        String path = "spotify_dataset_2.csv";
         String line = "";
         ArrayList<Cancion> canciones =  new ArrayList<Cancion>();
         try (BufferedReader buff = new BufferedReader(new FileReader(path))) {
             while((line = buff.readLine()) != null){
 
                 String[] a = line.split(",");
-                //System.out.println(a.length);
-                //canciones.add(new Cancion(a[4], a[6], a[9], a[20])); 
+                canciones.add(new Cancion(a[4], a[6], a[8], a[17])); 
 
             }
         } catch (IOException e) {
-
             e.printStackTrace();
         }
-        //System.out.println(canciones.get(5).getNombre());
+        
+        Playlist playlist1 = new Playlist();
+        Playlist playlist2 = new Playlist();
+        Playlist playlist3 = new Playlist();
+
+        for (int i = 0; i < 10; i++) {
+            playlist1.getCanciones().add(canciones.get(i));
+            playlist1.setNombre("Playlist 1");
+        }
+        playlists.add(playlist1);
+
+        for (int i = 10; i < 20; i++) {
+            playlist2.getCanciones().add(canciones.get(i));
+            playlist2.setNombre("Playlist 2");
+        }
+        playlists.add(playlist2);
+
+        for (int i = 20; i < 30; i++) {
+            playlist3.getCanciones().add(canciones.get(i));
+            playlist3.setNombre("Playlist 3");
+        }
+        playlists.add(playlist3);
+
     }
 
     public Telefono getTelefono() {
@@ -65,11 +85,11 @@ public class Radio {
         this.emisora = emisora;
     }
 
-    public ArrayList<Playlist> getPlaylist() {
+    public ArrayList<Playlist> getPlaylists() {
         return this.playlists;
     }
 
-    public void setPlaylist(ArrayList<Playlist> playlist) {
+    public void setPlaylists(ArrayList<Playlist> playlist) {
         this.playlists = playlist;
     }
 
@@ -108,7 +128,7 @@ public class Radio {
     }
 
     public Radio playlist(ArrayList<Playlist> playlist) {
-        setPlaylist(playlist);
+        setPlaylists(playlist);
         return this;
     }
 
@@ -136,7 +156,7 @@ public class Radio {
         return
             "\ntelefono: \n" + telefono.toString() +
             "\nemisora: " + emisora.toString() +
-            "\nplaylist: " + getPlaylist() +
+            "\nplaylist: " + getPlaylists() +
             "\nestado: " + getEstado() +
             "\nvolumen: " + getVolumen() +
             "\nemisoras: \n" + emisoraString

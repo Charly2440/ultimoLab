@@ -5,6 +5,7 @@ public class Playlist {
     private ArrayList<Cancion> canciones;
 
     public Playlist() {
+        canciones = new ArrayList<Cancion>();
     }
 
     public Playlist(String nombre, ArrayList<Cancion> canciones) {

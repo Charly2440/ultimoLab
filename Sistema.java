@@ -40,43 +40,75 @@ public class Sistema implements productividad, modoRadio, modoReproduccion, modo
     //Interfaz modoRadio
     @Override
     public boolean estadoRadio() {
-        // TODO Auto-generated method stub
-        return false;
+        return radio.getEstado();
     }
 
     @Override
     public int cambiarVolumen(boolean arriba) {
-        // TODO Auto-generated method stub
-        return 0;
+        if (estadoRadio()){
+            if (arriba){
+                radio.setVolumen(radio.getVolumen()+1);
+                return radio.getVolumen();
+            }
+            
+            else {
+                radio.setVolumen(radio.getVolumen()-1);
+                return radio.getVolumen();
+            }
+        }
+        return radio.getVolumen();
     }
 
     @Override
     public String cambiarFrecuencia(String frecuencia) {
-        // TODO Auto-generated method stub
-        return "";
+        radio.getEmisora().setFrecuencia(frecuencia);
+        return radio.getEmisora().getFrecuencia();
     }
 
     @Override
     public float cambiarEmisoras(boolean arriba) {
-        // TODO Auto-generated method stub
-        return 0;
+        if (estadoRadio()){
+            if (arriba){
+                radio.getEmisora().setCanal(radio.getEmisora().getCanal()+0.5f);
+                return radio.getEmisora().getCanal();
+            }
+            
+            else {
+                radio.getEmisora().setCanal(radio.getEmisora().getCanal()-0.5f);
+                return radio.getEmisora().getCanal();
+            }
+        }
+        return radio.getEmisora().getCanal();
     }
 
     @Override
     public void guardarEmisoras() {
-        // TODO Auto-generated method stub
-        
+        radio.getEmisoras().add(radio.getEmisora());
     }
 
     @Override
-    public void cargarEmisoras() {
-        // TODO Auto-generated method stub
-        
+    public String mostrarEmisoras() {
+        String emisoras = "";
+        for (Emisora emisora : radio.getEmisoras()) {
+            emisoras = emisoras + emisora.toString();
+        }
+        return emisoras;
+    }
+
+    @Override
+    public String cargarEmisoras(int i) {
+        return radio.getEmisoras().get(i).toString();
     }
 
     //Interfaz modoReproduccion
     @Override
     public String seleccionarPlaylist(int decision) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public String mostrarPlaylists() {
         // TODO Auto-generated method stub
         return null;
     }
