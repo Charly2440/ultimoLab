@@ -3,9 +3,19 @@ import java.util.ArrayList;
 public class Playlist {
     private String nombre;
     private ArrayList<Cancion> canciones;
+    private int cancionActual;
 
     public Playlist() {
-        canciones = new ArrayList<Cancion>();
+        canciones = new ArrayList<Cancion>();;
+        cancionActual = 0;
+    }
+
+    public int getCancionActual() {
+        return this.cancionActual;
+    }
+
+    public void setCancionActual(int cancionActual) {
+        this.cancionActual = cancionActual;
     }
 
     public Playlist(String nombre, ArrayList<Cancion> canciones) {

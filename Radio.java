@@ -10,6 +10,19 @@ public class Radio {
     private boolean estado;
     private int volumen;
     private ArrayList<Emisora> emisoras;
+    private int playlist;
+
+    public boolean isEstado() {
+        return this.estado;
+    }
+
+    public int getPlaylist() {
+        return this.playlist;
+    }
+
+    public void setPlaylist(int playlist) {
+        this.playlist = playlist;
+    }
 
 
     public Radio() {

@@ -103,39 +103,49 @@ public class Sistema implements productividad, modoRadio, modoReproduccion, modo
     //Interfaz modoReproduccion
     @Override
     public String seleccionarPlaylist(int decision) {
-        // TODO Auto-generated method stub
-        return null;
+        radio.setPlaylist(decision);
+        return radio.getPlaylists().get(decision).toString();
     }
 
     @Override
     public String mostrarPlaylists() {
-        // TODO Auto-generated method stub
-        return null;
+        String playlists = "";
+        for (Playlist playlist : radio.getPlaylists()) {
+            playlists = playlists + playlist.toString();
+        }
+        return playlists;
     }
 
     @Override
     public String cambiarCancion(boolean arriba) {
-        // TODO Auto-generated method stub
-        return null;
+        Playlist playlistActual = radio.getPlaylists().get(radio.getPlaylist());
+        if (arriba){
+            return playlistActual.getCanciones().get(playlistActual.getCancionActual()+1).toString();
+        }
+        else{
+            return playlistActual.getCanciones().get(playlistActual.getCancionActual()-1).toString();
+        }
+        
     }
 
     //Interfaz modoTelefono
     @Override
     public void conectado() {
-        // TODO Auto-generated method stub
-        
+        radio.getTelefono().setConectado(true);
     }
 
     @Override
     public String mostrarConstactos() {
-        // TODO Auto-generated method stub
-        return null;
+        String contactos = "";
+        for (Contacto contacto : radio.getTelefono().getContactos()) {
+            contactos = contactos + contacto.toString();
+        }
+        return contactos;
     }
 
     @Override
     public String llamarContactos(int desicion) {
-        // TODO Auto-generated method stub
-        return null;
+       return radio.getTelefono().getContactos().get(desicion).toString();
     }
 
     @Override
