@@ -150,13 +150,13 @@ public class Sistema implements productividad, modoRadio, modoReproduccion, modo
 
     @Override
     public String finalizarLlamadaEspera() {
-        // TODO Auto-generated method stub
-        return null;
+        radio.getTelefono().setEstadoLlamada("Finalizado");
+        return "Llamada finalizada";
     }
 
     @Override
     public String cambiarLlamadaEspera() {
-        // TODO Auto-generated method stub
-        return null;
+        radio.getTelefono().setEstadoLlamada("En espera");
+        return "Llamada en espera";
     }
 }

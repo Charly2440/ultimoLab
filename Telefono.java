@@ -3,6 +3,15 @@ import java.util.ArrayList;
 public class Telefono {
     private ArrayList<Contacto> contactos;
     private boolean conectado;
+    private String estadoLlamada;
+
+    public String getEstadoLlamada() {
+        return this.estadoLlamada;
+    }
+
+    public void setEstadoLlamada(String estadoLlamada) {
+        this.estadoLlamada = estadoLlamada;
+    }
 
 
     public Telefono() {
