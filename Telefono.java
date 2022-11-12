@@ -18,15 +18,15 @@ public class Telefono {
     }
 
     public void rellenarContactos(){
-        String path = "contactos.csv";
+        String path = "contactoss.csv";
         String line = "";
         try (BufferedReader buff = new BufferedReader(new FileReader(path))) {
             while((line = buff.readLine()) != null){
                 String[] a = line.split(",");
-                contactos.add(new Contacto(a[0], "", Long.parseLong(a[1])));         
+                System.out.println(line);
+                contactos.add(new Contacto(a[0], "", a[1]));         
             }
-        } catch (IOException e) {
-            
+        } catch (IOException e) { 
             e.printStackTrace();
     }
     }

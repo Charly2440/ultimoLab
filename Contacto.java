@@ -1,17 +1,14 @@
 public class Contacto{
     private String nombre;
-    private String estado;
-    private long numero;
+    private String numero;
 
     public Contacto() {
         nombre ="";
-        estado="";
-        numero =0;
+        numero ="";
     }
 
-    public Contacto(String nombre, String estado, long numero) {
+    public Contacto(String nombre, String estado, String numero) {
         this.nombre = nombre;
-        this.estado = estado;
         this.numero = numero;
     }
 
@@ -23,19 +20,11 @@ public class Contacto{
         this.nombre = nombre;
     }
 
-    public String getEstado() {
-        return this.estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public long getNumero() {
+    public String getNumero() {
         return this.numero;
     }
 
-    public void setNumero(long numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 
@@ -44,12 +33,7 @@ public class Contacto{
         return this;
     }
 
-    public Contacto estado(String estado) {
-        setEstado(estado);
-        return this;
-    }
-
-    public Contacto numero(long numero) {
+    public Contacto numero(String numero) {
         setNumero(numero);
         return this;
     }
@@ -58,7 +42,6 @@ public class Contacto{
     public String toString() {
         return
             "\nnombre: " + getNombre() +
-            "\nestado: " + getEstado() + 
             "\nnumero: " + getNumero()
             ;
     }

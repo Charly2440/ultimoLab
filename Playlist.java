@@ -53,7 +53,7 @@ public class Playlist {
     public String toString() {
         String songs = "";
         for (Cancion cancion : canciones) {
-            songs = songs + cancion.toString();
+            songs = songs + cancion.getNombre();
         }
         return
             "\nnombre: " + getNombre() +
