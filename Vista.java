@@ -107,7 +107,7 @@ public class Vista {
                 case 7: {
                     System.out.println(sistema.mostrarPlaylists());
                     int op = 0;
-                    System.out.println("Desea PlayList 1 (1) PlayList 2 (2) o PlayList 3 (3)?");
+                    System.out.println("Desea PlayList 1 (0) PlayList 2 (1) o PlayList 3 (2)?");
                     op = scan.nextInt();
                     System.out.println(sistema.seleccionarPlaylist(op));
                     break;
@@ -120,11 +120,11 @@ public class Vista {
                     scan.nextLine();
                     if (op == 1){
                         System.out.println("La cancion es: ");
-                        System.out.println(sistema.cambiarEmisoras(true));
+                        System.out.println(sistema.cambiarCancion(true));
                     }
                     if (op == 2){
                         System.out.println("La cancion es: ");
-                        System.out.println(sistema.cambiarEmisoras(false));
+                        System.out.println(sistema.cambiarCancion(false));
                     }
                     break;
                 }
@@ -168,5 +168,4 @@ public class Vista {
 
         }
     }
-
 
