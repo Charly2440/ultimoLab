@@ -135,6 +135,7 @@ public class Vista {
                     else {
                         System.out.println("Telefono desconectado");
                     }
+                    break;
                 }
                 case 10: {
                     System.out.println(sistema.mostrarConstactos());
@@ -144,9 +145,10 @@ public class Vista {
                 case 11: {
                     System.out.println(sistema.mostrarConstactos());
                     int op = 0;
-                    System.out.println("Ingrese la opcion que desea seleccionar");
+                    System.out.println("Ingrese la posicion de la persona que desea llamar");
                     op = scan.nextInt();
                     System.out.println(sistema.llamarContactos(op));
+                    break;
                 }
 
                 case 12: {
